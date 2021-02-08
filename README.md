@@ -15,6 +15,7 @@ apt install wireguard-tools --no-install-recommends
 yum install wireguard-tools
 
 ![systemd](https://raw.githubusercontent.com/1219099256/wireguard-go/systemd.png)
+
 Environment=WG_I_PREFER_BUGGY_USERSPACE_TO_POLISHED_KMOD=1
 
 wg-quick up wg0
