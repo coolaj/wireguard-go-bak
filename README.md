@@ -14,9 +14,17 @@ apt install wireguard-tools --no-install-recommends
 
 yum install wireguard-tools
 
+### systemd
+
+vim /lib/systemd/system/wg-quick@.service
+
 ![systemd](https://github.com/1219099256/wireguard-go/raw/master/systemd.png)
 
 Environment=WG_I_PREFER_BUGGY_USERSPACE_TO_POLISHED_KMOD=1
+
+systemctl enable wg-quick@wg0
+
+systemctl start wg-quick@wg0
 
 wg-quick up wg0
 
