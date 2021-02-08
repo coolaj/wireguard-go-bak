@@ -14,6 +14,9 @@ apt install wireguard-tools --no-install-recommends
 
 yum install wireguard-tools
 
+wg-quick up wg0
+wg-quick down wg0
+
 #
 
 # Go Implementation of [WireGuard](https://www.wireguard.com/)
