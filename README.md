@@ -26,6 +26,8 @@ systemctl enable wg-quick@wg0
 
 systemctl start wg-quick@wg0
 
+systemctl status wg-quick@wg0
+
 wg-quick up wg0
 
 wg-quick down wg0
