@@ -14,8 +14,7 @@ apt install wireguard-tools --no-install-recommends
 
 yum install wireguard-tools
 
-
-
+#
 
 # Go Implementation of [WireGuard](https://www.wireguard.com/)
 
