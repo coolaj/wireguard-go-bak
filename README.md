@@ -14,6 +14,10 @@ apt install wireguard-tools --no-install-recommends
 
 yum install wireguard-tools
 
+### wg0.conf
+
+vim /etc/wireguard/wg0.conf
+
 ### systemd
 
 vim /lib/systemd/system/wg-quick@.service
