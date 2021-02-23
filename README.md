@@ -1,3 +1,17 @@
+### wgcf
+
+mkdir wgcf && cd wgcf
+
+wget -O wgcf https://github.com/ViRb3/wgcf/releases/download/v2.1.4/wgcf_2.1.4_linux_amd64 && chmod +x wgcf
+
+#注册WARP账户
+
+./wgcf register
+
+#生成WireGuard配置文件
+
+./wgcf generate
+
 wget https://raw.githubusercontent.com/1219099256/wireguard-go/master/wireguard-go -P /usr/bin/ && chmod +x /usr/bin/wireguard-go
 
 ### debian
