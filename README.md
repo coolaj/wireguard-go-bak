@@ -1,4 +1,4 @@
-wget https://raw.githubusercontent.com/1219099256/wireguard-go/wireguard-go -P /usr/bin/ && chmod +x /usr/bin/wireguard-go
+wget https://raw.githubusercontent.com/1219099256/wireguard-go/master/wireguard-go -P /usr/bin/ && chmod +x /usr/bin/wireguard-go
 
 ### debian
 
