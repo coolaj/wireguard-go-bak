@@ -24,6 +24,8 @@ apt update
 
 apt install wireguard-tools --no-install-recommends
 
+apt install resolvconf
+
 ### centos7
 
 yum install wireguard-tools
