@@ -14,6 +14,10 @@ wget -O wgcf https://github.com/ViRb3/wgcf/releases/download/v2.1.4/wgcf_2.1.4_l
 
 wget https://raw.githubusercontent.com/1219099256/wireguard-go/master/wireguard-go -P /usr/bin/ && chmod +x /usr/bin/wireguard-go
 
+#编译
+
+git clone https://git.zx2c4.com/wireguard-go && cd wireguard-go && make
+
 ### debian
 
 echo "deb http://deb.debian.org/debian/ unstable main" > /etc/apt/sources.list.d/unstable.list
