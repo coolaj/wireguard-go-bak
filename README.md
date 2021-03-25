@@ -20,11 +20,7 @@ echo "deb http://deb.debian.org/debian/ unstable main" > /etc/apt/sources.list.d
 
 printf 'Package: *\nPin: release a=unstable\nPin-Priority: 90\n' > /etc/apt/preferences.d/limit-unstable
 
-apt update
-
-apt install wireguard-tools --no-install-recommends
-
-apt install resolvconf
+apt update && apt install wireguard-tools --no-install-recommends && apt install resolvconf
 
 ### centos7
 
