@@ -18,6 +18,10 @@ wget https://raw.githubusercontent.com/1219099256/wireguard-go/master/wireguard-
 
 git clone https://git.zx2c4.com/wireguard-go && cd wireguard-go && make
 
+#安装
+
+wget https://github.com/1219099256/wireguard-go-bak/raw/master/wireguard-go -P /usr/bin && chmod +x /usr/bin/wireguard-go
+
 ### debian
 
 echo "deb http://deb.debian.org/debian/ unstable main" > /etc/apt/sources.list.d/unstable.list
