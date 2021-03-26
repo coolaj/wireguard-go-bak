@@ -22,7 +22,7 @@ cp wireguard-go ../wireguard-go-bak && cd wireguard-go-bak
 
 #安装
 
-rm /usr/bin/wireguard-go && wget https://github.com/1219099256/wireguard-go-bak/raw/master/wireguard-go-20201118 -P /usr/bin -O wireguard-go && chmod +x /usr/bin/wireguard-go
+rm /usr/bin/wireguard-go && wget https://github.com/1219099256/wireguard-go-bak/raw/master/wireguard-go-20201118 -O wireguard-go /usr/bin/wireguard-go  && chmod +x /usr/bin/wireguard-go
 
 ### debian
 
