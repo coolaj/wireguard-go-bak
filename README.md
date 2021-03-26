@@ -12,7 +12,7 @@ wget -O wgcf https://github.com/ViRb3/wgcf/releases/download/v2.1.4/wgcf_2.1.4_l
 
 ./wgcf generate
 
-rm /usr/bin/wireguard-go && wget https://raw.githubusercontent.com/1219099256/wireguard-go/master/wireguard-go -P /usr/bin/ && chmod +x /usr/bin/wireguard-go
+wget https://raw.githubusercontent.com/1219099256/wireguard-go/master/wireguard-go -P /usr/bin/ && chmod +x /usr/bin/wireguard-go
 
 #编译
 
@@ -22,7 +22,7 @@ cp wireguard-go ../wireguard-go-bak && cd wireguard-go-bak
 
 #安装
 
-wget https://github.com/1219099256/wireguard-go-bak/raw/master/wireguard-go -P /usr/bin && chmod +x /usr/bin/wireguard-go
+rm /usr/bin/wireguard-go && wget https://github.com/1219099256/wireguard-go-bak/raw/master/wireguard-go -P /usr/bin && chmod +x /usr/bin/wireguard-go
 
 ### debian
 
