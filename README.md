@@ -18,7 +18,7 @@ wget https://raw.githubusercontent.com/1219099256/wireguard-go/master/wireguard-
 
 git clone https://git.zx2c4.com/wireguard-go && cd wireguard-go && make
 
-cp wireguard-go ../wireguard-go-bak && cd wireguard-go-bak
+cp wireguard-go ../wireguard-go-bak && cd ../wireguard-go-bak
 
 #安装
 
