@@ -137,3 +137,89 @@ $ make
     LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE.
+
+
+
+
+一、安装wireguard-go
+
+Github地址：https://github.com/WireGuard/wireguard-go
+
+编译安装
+一些需要的软件yum install -y wget git make
+如果是debian/ubuntu：apt install -y wget git make
+1.安装golang1.16
+
+wget https://golang.org/dl/go1.16.1.linux-amd64.tar.gz
+tar xvf go1.16.1.linux-amd64.tar.gz -C /usr/local
+cat <<EOF >> /etc/profile
+#golang env config
+export GO111MODULE=on
+export GOROOT=/usr/local/go 
+export GOPATH=~/gopath
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+EOF
+source /etc/profile
+2.拉取代码并编译
+
+git clone https://git.zx2c4.com/wireguard-go.git
+git checkout 0.0.20201118
+cd wireguard-go
+make
+mv wireguard-go /usr/local/sbin
+下载编译好的二进制文件安装
+一些需要的软件yum install -y wget
+如果是debian/ubuntu：apt install -y wget
+
+wget https://github.com/peng4740/wireguard-go-builder/releases/download/0.0.20201118/wireguard-go-linux-amd64.tar.gz
+tar zxf wireguard-go-linux-amd64.tar.gz
+mv wireguard-go /usr/local/sbin
+rm -f wireguard-go-linux-amd64.tar.gz
+二、安装wgcf
+
+这个是用来生成warp配置的
+Github地址：https://github.com/ViRb3/wgcf
+
+安装
+wget https://github.com/ViRb3/wgcf/releases/download/v2.2.2/wgcf_2.2.2_linux_amd64 -O /usr/local/sbin/wgcf
+chmod +x /usr/local/sbin/wgcf
+三、用wgcf生成配置
+echo|wgcf register
+wgcf generate
+sed -i '/0\.0\.0\.0\/0/d' wgcf-profile.conf
+#sed -i '/\:\:\/0/d' wgcf-profile.conf # 如果是IPV6VPS要添加IPV4则改用这个，上一条不要执行
+mkdir -p /etc/wireguard
+cp -f wgcf-profile.conf /etc/wireguard/wgcf.conf
+安装wireguard-tools
+
+CentOS7：yum install -y wireguard-tools
+如果提示找不到包安装失败了可能是没有epel源，先安装yum install epel-release -y
+
+其他系统其实也是差不多的
+
+Debian:
+
+echo "deb http://deb.debian.org/debian/ unstable main" > /etc/apt/sources.list.d/unstable.list
+printf 'Package: *\nPin: release a=unstable\nPin-Priority: 150\n' > /etc/apt/preferences.d/limit-unstable
+apt update
+apt install -y wireguard
+Ubuntu：apt install -y wireguard
+
+没说到系统可参考官网教程：https://www.wireguard.com/install/
+
+四、运行测试
+
+1.启动
+
+wg-quick up wgcf
+如果运行完就失联了(VPS的SSH终端没反应了)。先重启VPS，检查一下配置有没有问题，可以复制评论给嗷嗷看看。
+当然，也不用太担心，如果你没漏掉什么步骤，一般是不会有事的。
+
+2.测试
+
+curl ipv6.ip.sb
+如果能正常显示ip就正常
+
+五、配置开机自启(务必要运行测试过后再配置)
+
+systemctl enable wg-quick@wgcf
